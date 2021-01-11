@@ -35,7 +35,7 @@ const Post: React.FC<Props> = ({ post, preview }: Props) => {
         {router.isFallback ? (
           <PostTitle>Loading...</PostTitle>
         ) : (
-          <article className="prose lg:prose-xl prose-purple mx-auto mb-32">
+          <article className="prose lg:prose-xl prose-purple mx-auto mb-16">
             <Head>
               <meta property="og:description" content={post.description} />
               <meta property="og:image" content={post.ogImage.url} />
@@ -77,6 +77,7 @@ export async function getStaticProps({ params }: Params) {
     'coverImage',
     'content',
   ]);
+
   const content = await markdownToHtml(post.content || '');
 
   return {
