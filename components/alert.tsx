@@ -33,6 +33,8 @@ const Alert: React.FC<Props> = ({ preview, postPath }: Props) => {
               The source code for this article is{' '}
               <a
                 href={`https://github.com/kjmczk/${postPath}`}
+                rel="noopener noreferrer"
+                target="_blank"
                 className="underline hover:text-success duration-200 transition-colors"
               >
                 available on GitHub
