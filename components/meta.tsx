@@ -10,7 +10,7 @@ const Meta: React.FC<Props> = ({ pageTitle }: Props) => {
   const meta = {
     description:
       'Tutorials and tips for full-stack developers to build apps with TypeScript / JavaScript, React, React Native and more.',
-    cardImage: '/assets/card-image.png',
+    cardImage: '/assets/card-image.webp',
     // ...pageMeta,
   };
 
@@ -41,19 +41,19 @@ const Meta: React.FC<Props> = ({ pageTitle }: Props) => {
         color="#5bbad5"
       />
       <link rel="shortcut icon" href="/favicon/favicon.ico" />
-      <meta name="msapplication-TileColor" content="#ffc40d" />
+      <meta name="msapplication-TileColor" content="#9f00a7" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#fff" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <meta name="description" content={meta.description} />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content={SITE_NAME} />
-      <meta property="og:title" content={SITE_NAME} />
+      <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={meta.description} />
       <meta property="og:image" content={meta.cardImage} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@kjmczk" />
-      <meta name="twitter:title" content={SITE_NAME} />
+      <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={meta.description} />
       <meta name="twitter:image" content={meta.cardImage} />
       <link
