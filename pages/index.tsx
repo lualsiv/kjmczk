@@ -8,7 +8,7 @@ import { SITE_NAME, SITE_TITLE } from '../utils/constants';
 
 const Home: React.FC = () => {
   return (
-    <Layout pageTitle="Home">
+    <Layout pageTitle={SITE_TITLE}>
       <Head>
         <title>
           {SITE_NAME}: {SITE_TITLE}
