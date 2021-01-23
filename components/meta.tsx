@@ -19,6 +19,7 @@ const Meta: React.FC<Props> = ({ pageTitle }: Props) => {
   const router = useRouter();
   const ogUrl = SITE_URL + router.asPath;
   const ogType = router.pathname === '/' ? 'website' : 'article';
+  const ogImage = SITE_URL + meta.ogImage.url;
 
   return (
     <Head>
@@ -61,7 +62,7 @@ const Meta: React.FC<Props> = ({ pageTitle }: Props) => {
         content={meta.description}
         key="ogDescription"
       />
-      <meta property="og:image" content={meta.ogImage.url} key="ogImage" />
+      <meta property="og:image" content={ogImage} key="ogImage" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@kjmczk" />
       <link

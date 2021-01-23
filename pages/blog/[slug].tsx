@@ -10,6 +10,7 @@ import PostHeader from '../../components/post-header';
 import PostTitle from '../../components/post-title';
 import IPost from '../../types/post';
 import { getPostBySlug, getAllPosts } from '../../utils/api';
+import { SITE_URL } from '../../utils/constants';
 import markdownToHtml from '../../utils/markdownToHtml';
 
 type Props = {
@@ -23,6 +24,8 @@ const Post: React.FC<Props> = ({ post, preview }: Props) => {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+
+  const ogImage = SITE_URL + post.ogImage.url;
 
   return (
     <Layout
@@ -47,11 +50,7 @@ const Post: React.FC<Props> = ({ post, preview }: Props) => {
                 content={post.description}
                 key="ogDescription"
               />
-              <meta
-                property="og:image"
-                content={post.ogImage.url}
-                key="ogImage"
-              />
+              <meta property="og:image" content={ogImage} key="ogImage" />
             </Head>
 
             <PostHeader
