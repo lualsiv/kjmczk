@@ -1,18 +1,24 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
-import { SITE_NAME } from '../utils/constants';
+import { SITE_URL, SITE_NAME } from '../utils/constants';
 
 type Props = {
   pageTitle: string;
 };
 
+const meta = {
+  description:
+    'Tutorials and tips for full-stack developers to build apps with TypeScript / JavaScript, React, React Native and more.',
+  ogImage: {
+    url: '/assets/card-image.webp',
+  },
+};
+
 const Meta: React.FC<Props> = ({ pageTitle }: Props) => {
-  const meta = {
-    description:
-      'Tutorials and tips for full-stack developers to build apps with TypeScript / JavaScript, React, React Native and more.',
-    cardImage: '/assets/card-image.webp',
-    // ...pageMeta,
-  };
+  const router = useRouter();
+  const ogUrl = SITE_URL + router.asPath;
+  const ogType = router.pathname === '/' ? 'website' : 'article';
 
   return (
     <Head>
@@ -45,17 +51,19 @@ const Meta: React.FC<Props> = ({ pageTitle }: Props) => {
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#fff" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <meta name="description" content={meta.description} />
-      <meta property="og:type" content="website" />
+      <meta name="description" content={meta.description} key="description" />
+      <meta property="og:url" content={ogUrl} />
+      <meta property="og:type" content={ogType} />
       <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:title" content={pageTitle} />
-      <meta property="og:description" content={meta.description} />
-      <meta property="og:image" content={meta.cardImage} />
+      <meta
+        property="og:description"
+        content={meta.description}
+        key="ogDescription"
+      />
+      <meta property="og:image" content={meta.ogImage.url} key="ogImage" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@kjmczk" />
-      <meta name="twitter:title" content={pageTitle} />
-      <meta name="twitter:description" content={meta.description} />
-      <meta name="twitter:image" content={meta.cardImage} />
       <link
         href="https://unpkg.com/prismjs@0.0.1/themes/prism-okaidia.css"
         rel="stylesheet"
