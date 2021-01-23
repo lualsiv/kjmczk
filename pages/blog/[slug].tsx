@@ -37,12 +37,21 @@ const Post: React.FC<Props> = ({ post, preview }: Props) => {
         ) : (
           <article className="prose lg:prose-xl prose-purple mx-auto mb-16">
             <Head>
-              <meta name="description" content={post.description} />
-              <meta property="og:type" content="article" />
-              <meta property="og:description" content={post.description} />
-              <meta property="og:image" content={post.ogImage.url} />
-              <meta name="twitter:description" content={post.description} />
-              <meta name="twitter:image" content={post.ogImage.url} />
+              <meta
+                name="description"
+                content={post.description}
+                key="description"
+              />
+              <meta
+                property="og:description"
+                content={post.description}
+                key="ogDescription"
+              />
+              <meta
+                property="og:image"
+                content={post.ogImage.url}
+                key="ogImage"
+              />
             </Head>
 
             <PostHeader
